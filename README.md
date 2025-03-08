@@ -2,6 +2,11 @@
 
 A versatile, interactive system that combines SQL databases and LlamaIndex for natural language querying of both structured and unstructured data. The system features Retrieval-Augmented Generation (RAG) capabilities and Text-to-SQL conversion, supporting both predefined datasets and custom data uploads.
 
+## 🔷 High-Level Overview
+
+Below is an architectural overview of the system:
+![Running the App](images/llamacloud_sql_router_img.png)
+
 ## 🌟 Features
 
 ### City Information Query System
