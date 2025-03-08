@@ -33,7 +33,7 @@ sqlalchemy
 python-dotenv
 ```
 
-### Installation
+### Installation and Running the app
 
 1. Clone the repository
 ```bash
@@ -45,8 +45,20 @@ cd rag-sql-query-system
 ```bash
 pip install -r requirements.txt
 ```
+3. Load Documents into LlamaCloud
 
-3. Set up your environment variables
+Download the following Wikipedia pages into PDFs by either pressing Ctrl-P/Cmd-P or right-clicking and selecting "Print" and then "Save as PDF" as the destination. 
+- [New York City](https://en.wikipedia.org/wiki/New_York_City)
+- [Los Angeles](https://en.wikipedia.org/wiki/Los_Angeles)
+- [Chicago](https://en.wikipedia.org/wiki/Chicago)
+- [Houston](https://en.wikipedia.org/wiki/Houston)
+- [Miami](https://en.wikipedia.org/wiki/Miami)
+- [Seattle](https://en.wikipedia.org/wiki/Seattle)
+
+After that, create a new index in LlamaCloud and upload your PDFs.
+
+
+4. Set up your environment variables
 Create a `.streamlit/secrets.toml` file:
 ```toml
 [api_keys]
@@ -60,7 +72,7 @@ INDEX_NAME = "your-index-name"
 PROJECT_NAME = "your-project-name"
 ```
 
-4. Run the application
+5. Run the application
 ```bash
 streamlit run app.py
 ```
