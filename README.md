@@ -33,7 +33,7 @@ sqlalchemy
 python-dotenv
 ```
 
-### Installation and Running the app
+### Installation
 
 1. Clone the repository
 ```bash
@@ -126,6 +126,11 @@ rag-sql-query-system/
    - Implements Retrieval-Augmented Generation
    - Processes unstructured documents
    - Provides contextual information retrieval
+
+## 📸 Running the App
+Once the application is launched, you should see a Streamlit interface like this:
+
+![Running the App](images/running_app.png)
 
 ## 🤝 Contributing
 
