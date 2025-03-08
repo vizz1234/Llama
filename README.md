@@ -67,17 +67,10 @@ streamlit run app.py
 
 ## 💡 Usage
 
-### Default Mode
+### Default Mode 
 1. Enter your natural language query
 2. System automatically determines whether to use SQL or RAG
 3. View results formatted in markdown
-
-### Custom Mode
-1. Toggle "Use Custom Data" in the sidebar
-2. Upload structured data (CSV) for Text-to-SQL functionality
-3. Upload unstructured documents (PDF) for RAG capabilities
-4. Query your custom data using natural language
-5. Reset anytime using the "Reset Custom Tools" button
 
 ### Sample Queries
 - Structured Data: "What are the highest values in the dataset?"
