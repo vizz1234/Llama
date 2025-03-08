@@ -4,15 +4,22 @@ A versatile, interactive system that combines SQL databases and LlamaIndex for n
 
 ## 🌟 Features
 
-### Default Mode
+### City Information Query System
 - **Text-to-SQL Conversion**: Query structured data using natural language
-- **RAG Integration**: Enhanced responses using LlamaIndex for comprehensive information retrieval
+  - Pre-loaded city database with population and state information
+  - Includes data for major US cities: New York City, Los Angeles, Chicago, Houston, Miami, Seattle
+  - Query statistics like population, state location, and city comparisons
+- **RAG Integration with LlamaCloud**: Enhanced responses using LlamaIndex Cloud API
+  - Rich contextual information about each city
+  - Historical facts and cultural insights
+  - Transportation and lifestyle details
+  - Tourist attractions and points of interest
+  - Cloud-hosted index for efficient retrieval
 - **Pre-loaded Database**: Example dataset demonstrating system capabilities
+  - Structured SQL database with city statistics
+  - Unstructured knowledge base with detailed city information
+  - Seamless integration between statistical and contextual data
 
-### Custom Mode
-- **CSV Data Upload**: Import any structured data for Text-to-SQL queries
-- **PDF Document Processing**: Upload documents for RAG-powered queries
-- **Dynamic Tool Creation**: Automatic configuration of query tools based on uploaded data
 
 ## 🚀 Getting Started
 
@@ -123,25 +130,4 @@ rag-sql-query-system/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- LlamaIndex for RAG capabilities
-- OpenAI for language processing
-- Streamlit for the interactive interface
-
-## 📧 Contact
-
-Your Name - your.email@example.com
-Project Link: [https://github.com/yourusername/rag-sql-query-system](https://github.com/yourusername/rag-sql-query-system)
-```
-
-The key changes include:
-- Updated project name and description to focus on RAG and Text-to-SQL capabilities
-- Modified feature descriptions to be more general and technical
-- Updated sample queries to be domain-agnostic
-- Enhanced technical details section to highlight RAG and Text-to-SQL components
-- Updated repository names and links to reflect the new focus

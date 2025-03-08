@@ -13,14 +13,6 @@ from sql_router import (
     create_llama_tool
 )
 
-# Initialize session state for custom mode
-if 'custom_mode' not in st.session_state:
-    st.session_state.custom_mode = False
-if 'custom_sql_tool' not in st.session_state:
-    st.session_state.custom_sql_tool = None
-if 'custom_llama_tool' not in st.session_state:
-    st.session_state.custom_llama_tool = None
-
 # Default database setup
 engine = create_engine("sqlite:///:memory:", future=True)
 metadata_obj = MetaData()
@@ -70,113 +62,13 @@ default_sql_tool = QueryEngineTool.from_defaults(
     name="sql_tool"
 )
 
-def create_custom_sql_tool(df, table_name="custom_stats"):
-    # Create database engine and tables
-    engine = create_engine("sqlite:///:memory:", future=True)
-    metadata_obj = MetaData()
-
-    # Dynamically create table columns based on DataFrame
-    columns = []
-    for col_name, dtype in df.dtypes.items():
-        if dtype == 'object':
-            columns.append(Column(col_name, String(255)))
-        elif dtype == 'int64':
-            columns.append(Column(col_name, Integer))
-
-    # Create table
-    custom_table = Table(table_name, metadata_obj, *columns)
-    metadata_obj.create_all(engine)
-
-    # Insert data
-    with engine.begin() as connection:
-        for _, row in df.iterrows():
-            stmt = insert(custom_table).values(**row.to_dict())
-            connection.execute(stmt)
-
-    # Create SQL database and query engine
-    sql_database = SQLDatabase(engine, include_tables=[table_name])
-    sql_query_engine = NLSQLTableQueryEngine(
-        sql_database=sql_database,
-        tables=[table_name]
-    )
-
-    return QueryEngineTool.from_defaults(
-        query_engine=sql_query_engine,
-        description=f"Useful for querying the {table_name} table containing custom data.",
-        name="sql_tool"
-    )
-
-def load_pdfs(pdf_files):
-    documents = []
-    for pdf_file in pdf_files:
-        with open(f"temp_{pdf_file.name}", "wb") as f:
-            f.write(pdf_file.getvalue())
-        text_path = Path(f"temp_{pdf_file.name}")
-        documents.append(Document.from_file(str(text_path)))
-        text_path.unlink()
-    
-    index = VectorStoreIndex.from_documents(documents)
-    return index
-
 st.title("City Information Query System")
 
-# Add toggle for custom mode
-custom_mode = st.sidebar.checkbox("Use Custom Data", value=st.session_state.custom_mode)
-
-if custom_mode and not st.session_state.custom_mode:
-    # Switching to custom mode
-    st.session_state.custom_mode = True
-    st.rerun()
-elif not custom_mode and st.session_state.custom_mode:
-    # Switching back to default mode
-    st.session_state.custom_mode = False
-    st.session_state.custom_sql_tool = None
-    st.session_state.custom_llama_tool = None
-    st.rerun()
-
-if st.session_state.custom_mode:
-    # Custom data setup
-    st.sidebar.header("Custom Data Setup")
-    
-    # CSV Upload for SQL Tool
-    csv_file = st.sidebar.file_uploader("Upload CSV Data", type="csv")
-    if csv_file and not st.session_state.custom_sql_tool:
-        df = pd.read_csv(csv_file)
-        st.sidebar.write("Preview of uploaded data:")
-        st.sidebar.write(df.head())
-        st.session_state.custom_sql_tool = create_custom_sql_tool(df)
-    
-    # PDF Upload for LlamaIndex
-    pdf_files = st.sidebar.file_uploader("Upload PDF Documents", type="pdf", accept_multiple_files=True)
-    if pdf_files and not st.session_state.custom_llama_tool:
-        st.sidebar.write(f"Uploaded {len(pdf_files)} PDF files")
-        index = load_pdfs(pdf_files)
-        st.session_state.custom_llama_tool = create_llama_tool(index)
-
-    # Display current tools status
-    st.sidebar.write("Tools Status:")
-    st.sidebar.write(f"- Custom SQL Tool: {'✓' if st.session_state.custom_sql_tool else '✗'}")
-    st.sidebar.write(f"- Custom LlamaIndex Tool: {'✓' if st.session_state.custom_llama_tool else '✗'}")
-
-    # Reset custom tools button
-    if st.sidebar.button("Reset Custom Tools"):
-        st.session_state.custom_sql_tool = None
-        st.session_state.custom_llama_tool = None
-        st.rerun()
-
-    # Only show query interface if both tools are ready
-    if st.session_state.custom_sql_tool and st.session_state.custom_llama_tool:
-        sql_tool = st.session_state.custom_sql_tool
-        llama_tool = st.session_state.custom_llama_tool
-    else:
-        st.warning("Please upload both CSV and PDF files to proceed.")
-        st.stop()
-else:
-    # Display default interface
-    st.header("Available Cities")
-    st.write(", ".join(cities))
-    sql_tool = default_sql_tool
-    llama_tool = llama_cloud_tool
+# Display default interface
+st.header("Available Cities")
+st.write(", ".join(cities))
+sql_tool = default_sql_tool
+llama_tool = llama_cloud_tool
 
 # Display sample queries
 st.header("Sample Queries")
