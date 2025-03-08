@@ -1,45 +1,40 @@
-# City Information Query System
+# RAG and Text-to-SQL Query System
 
-A powerful, interactive system that combines SQL databases and LlamaIndex for querying information about cities. The system supports both predefined city data and custom data uploads, allowing users to query structured databases and unstructured documents seamlessly.
+A versatile, interactive system that combines SQL databases and LlamaIndex for natural language querying of both structured and unstructured data. The system features Retrieval-Augmented Generation (RAG) capabilities and Text-to-SQL conversion, supporting both predefined datasets and custom data uploads.
 
 ## 🌟 Features
 
 ### Default Mode
-- **City Database**: Pre-loaded information about major US cities including:
-  - Population statistics
-  - State information
-  - Location details
-- **LlamaCloud Integration**: Access to comprehensive city information through LlamaIndex
+- **Text-to-SQL Conversion**: Query structured data using natural language
+- **RAG Integration**: Enhanced responses using LlamaIndex for comprehensive information retrieval
+- **Pre-loaded Database**: Example dataset demonstrating system capabilities
 
 ### Custom Mode
-- **CSV Data Upload**: Import your own structured data
-- **PDF Document Processing**: Upload and query multiple PDF documents
-- **Dynamic Tool Creation**: Automatic creation of query tools based on uploaded data
+- **CSV Data Upload**: Import any structured data for Text-to-SQL queries
+- **PDF Document Processing**: Upload documents for RAG-powered queries
+- **Dynamic Tool Creation**: Automatic configuration of query tools based on uploaded data
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-bash
+```
 python >= 3.8
 streamlit
 llama-index
 pandas
 sqlalchemy
 python-dotenv
-nest-asyncio
-openai
-ipython
+```
 
 ### Installation
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/city-query-system.git
-cd city-query-system
+git clone https://github.com/yourusername/rag-sql-query-system.git
+cd rag-sql-query-system
 ```
 
 2. Install dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
@@ -66,27 +61,26 @@ streamlit run app.py
 ## 💡 Usage
 
 ### Default Mode
-1. Enter your query in the text input
-2. Click "Get Answer" to receive information about US cities
+1. Enter your natural language query
+2. System automatically determines whether to use SQL or RAG
 3. View results formatted in markdown
 
 ### Custom Mode
 1. Toggle "Use Custom Data" in the sidebar
-2. Upload your CSV file with structured data
-3. Upload PDF documents for unstructured data
-4. Enter queries about your custom data
-5. Reset tools anytime using the "Reset Custom Tools" button
+2. Upload structured data (CSV) for Text-to-SQL functionality
+3. Upload unstructured documents (PDF) for RAG capabilities
+4. Query your custom data using natural language
+5. Reset anytime using the "Reset Custom Tools" button
 
 ### Sample Queries
-- "Which city has the highest population?"
-- "List all places to visit in Miami."
-- "How do people in Chicago get around?"
-- "What is the historical name of Los Angeles?"
+- Structured Data: "What are the highest values in the dataset?"
+- Unstructured Data: "Summarize the key points from the documents."
+- Combined: "Compare the statistical data with the contextual information."
 
 ## 🏗 Project Structure
 
 ```
-city-query-system/
+rag-sql-query-system/
 ├── app.py                 # Main Streamlit application
 ├── sql_router.py          # Router and tool definitions
 ├── .streamlit/
@@ -107,17 +101,19 @@ city-query-system/
 ### Components
 - **Streamlit**: Web interface and user interaction
 - **SQLAlchemy**: Database management and SQL queries
-- **LlamaIndex**: Document processing and semantic search
-- **OpenAI**: Natural language processing
+- **LlamaIndex**: RAG implementation and document processing
+- **OpenAI**: Natural language understanding and generation
 
 ### Tools
-1. **SQL Query Tool**
+1. **Text-to-SQL Tool**
+   - Converts natural language to SQL queries
    - Handles structured data queries
-   - Supports both default and custom databases
+   - Supports dynamic schema adaptation
 
-2. **LlamaIndex Tool**
-   - Processes unstructured text from PDFs
-   - Enables semantic search capabilities
+2. **RAG Tool**
+   - Implements Retrieval-Augmented Generation
+   - Processes unstructured documents
+   - Provides contextual information retrieval
 
 ## 🤝 Contributing
 
@@ -133,11 +129,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- LlamaIndex for document processing capabilities
-- OpenAI for natural language processing
-- Streamlit for the interactive web interface
+- LlamaIndex for RAG capabilities
+- OpenAI for language processing
+- Streamlit for the interactive interface
 
 ## 📧 Contact
 
 Your Name - your.email@example.com
-Project Link: [https://github.com/yourusername/city-query-system](https://github.com/yourusername/city-query-system)
+Project Link: [https://github.com/yourusername/rag-sql-query-system](https://github.com/yourusername/rag-sql-query-system)
+```
+
+The key changes include:
+- Updated project name and description to focus on RAG and Text-to-SQL capabilities
+- Modified feature descriptions to be more general and technical
+- Updated sample queries to be domain-agnostic
+- Enhanced technical details section to highlight RAG and Text-to-SQL components
+- Updated repository names and links to reflect the new focus
