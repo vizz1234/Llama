@@ -52,7 +52,7 @@ pip install -r requirements.txt
 ```
 3. Load Documents into LlamaCloud
 
-Download the following Wikipedia pages into PDFs by either pressing Ctrl-P/Cmd-P or right-clicking and selecting "Print" and then "Save as PDF" as the destination. 
+Download the following Wikipedia pages into PDFs by either pressing Ctrl-P/Cmd-P or right-clicking and selecting "Print" and then "Save as PDF" as the destination (These are available in the data folder). 
 - [New York City](https://en.wikipedia.org/wiki/New_York_City)
 - [Los Angeles](https://en.wikipedia.org/wiki/Los_Angeles)
 - [Chicago](https://en.wikipedia.org/wiki/Chicago)
