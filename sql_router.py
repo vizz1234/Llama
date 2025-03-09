@@ -34,8 +34,8 @@ Settings.llm = OpenAI("gpt-3.5-turbo")
 index = LlamaCloudIndex(
     name=st.secrets["llama_cloud"]["INDEX_NAME"],
     project_name=st.secrets["llama_cloud"]["PROJECT_NAME"],
-    organization_id=st.secrets["api_keys"]["ORGANIZATION_ID"],
-    api_key=st.secrets["api_keys"]["LLAMA_CLOUD_API_KEY"]
+    organization_id=st.secrets["llama_cloud"]["ORGANIZATION_ID"],
+    api_key=st.secrets["llama_cloud"]["LLAMA_CLOUD_API_KEY"]
 )
 
 llama_cloud_query_engine = index.as_query_engine()
