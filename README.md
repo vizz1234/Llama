@@ -63,8 +63,7 @@ Download the following Wikipedia pages into PDFs by either pressing Ctrl-P/Cmd-P
 After that, create a new index in LlamaCloud and upload your PDFs.
 
 
-4. Set up your environment variables
-Create a `.streamlit/secrets.toml` file:
+4. To Set up your environment variables, create a `.streamlit/secrets.toml` file:
 ```toml
 [api_keys]
 OPENAI_API_KEY = "your-openai-key"
