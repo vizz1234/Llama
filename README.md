@@ -10,20 +10,20 @@ Below is an architectural overview of the system:
 ## 🌟 Features
 
 ### City Information Query System
-- **Text-to-SQL Conversion**: Query structured data using natural language
-  - Pre-loaded city database with population and state information
-  - Includes data for major US cities: New York City, Los Angeles, Chicago, Houston, Miami, Seattle
-  - Query statistics like population, state location, and city comparisons
-- **RAG Integration with LlamaCloud**: Enhanced responses using LlamaIndex Cloud API
-  - Rich contextual information about each city
-  - Historical facts and cultural insights
-  - Transportation and lifestyle details
-  - Tourist attractions and points of interest
-  - Cloud-hosted index for efficient retrieval
-- **Pre-loaded Database**: Example dataset demonstrating system capabilities
-  - Structured SQL database with city statistics
-  - Unstructured knowledge base with detailed city information
-  - Seamless integration between statistical and contextual data
+- **Text-to-SQL Conversion**: Query structured data using natural language.
+  - Pre-loaded city database with population and state information.
+  - Includes data for major US cities: New York City, Los Angeles, Chicago, Houston, Miami, Seattle.
+  - Query statistics like population, state location, and city comparisons.
+- **RAG Integration with LlamaCloud**: Enhanced responses using LlamaIndex Cloud API.
+  - Rich contextual information about each city.
+  - Historical facts and cultural insights.
+  - Transportation and lifestyle details.
+  - Tourist attractions and points of interest.
+  - Cloud-hosted index for efficient retrieval.
+- **Pre-loaded Database**: Example dataset demonstrating system capabilities.
+  - Structured SQL database with city statistics.
+  - Unstructured knowledge base with detailed city information.
+  - Seamless integration between statistical and contextual data.
 
 
 ## 🚀 Getting Started
@@ -87,9 +87,9 @@ Go through `llamacloud_sql_router.ipynb` for Jupyter Notebook version (this does
 ## 💡 Usage
 
 ### Default Mode 
-1. Enter your natural language query
-2. System automatically determines whether to use SQL or RAG
-3. View results formatted in markdown
+1. Enter your natural language query.
+2. System automatically determines whether to use SQL or RAG.
+3. View results formatted in markdown.
 
 ### Sample Queries
 - Structured Data: "What are the highest values in the dataset?"
@@ -111,28 +111,28 @@ rag-sql-query-system/
 ## 🔒 Security
 
 - API keys and sensitive information are stored in `.streamlit/secrets.toml`
-- The secrets file is excluded from version control
-- Environment variables are used for deployment
-- Different keys should be used for development and production
+- The secrets file is excluded from version control.
+- Environment variables are used for deployment.
+- Different keys should be used for development and production.
 
 ## 🛠 Technical Details
 
 ### Components
-- **Streamlit**: Web interface and user interaction
-- **SQLAlchemy**: Database management and SQL queries
-- **LlamaIndex**: RAG implementation and document processing
-- **OpenAI**: Natural language understanding and generation
+- **Streamlit**: Web interface and user interaction.
+- **SQLAlchemy**: Database management and SQL queries.
+- **LlamaIndex**: RAG implementation and document processing.
+- **OpenAI**: Natural language understanding and generation.
 
 ### Tools
 1. **Text-to-SQL Tool**
-   - Converts natural language to SQL queries
-   - Handles structured data queries
-   - Supports dynamic schema adaptation
+   - Converts natural language to SQL queries.
+   - Handles structured data queries.
+   - Supports dynamic schema adaptation.
 
 2. **RAG Tool**
-   - Implements Retrieval-Augmented Generation
-   - Processes unstructured documents
-   - Provides contextual information retrieval
+   - Implements Retrieval-Augmented Generation.
+   - Processes unstructured documents.
+   - Provides contextual information retrieval.
 
 ## 📸 Running the App
 Once the application is launched, you should see a Streamlit interface like this:
